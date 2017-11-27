@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>书籍</title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<div>
+		<a class="btn btn-primary" href="bookList.php?controller=book&method=bookAdd">添加书籍</a>
+	</div>
+	<br>
+	<table class="table table-bordered">
+		<thead>
+		<tr>
+			<td>ID</td>
+			<td>书名</td>
+			<td>出版社</td>
+			<td>价格</td>
+			<td>日期</td>
+			<td>状态</td>
+			<td>操作1</td>
+			<td>操作2</td>
+		</tr>
+		</thead>
+		<tbody>
+		{foreach $booksNum as $book}
+		<tr>
+			<td>{$book.id}</td>
+			<td>{$book.name}</td>
+			<td>{$book.publish}</td>
+			<td>{$book.price}</td>
+			<td>{$book.timeDate}</td>
+			<td>
+ 			 {if $book.flag == 0}
+          	<a href="" class="btn btn-warning" onclick="changeStat(this,{$book.id})">禁用</a>
+       		 {else}
+         	 <a href="" class="btn btn-success" onclick="changeStat(this,{$book.id})">启用</a>
+        	{/if}
+			</td>
+			<td>
+				<a class="btn btn-primary" href="bookList.php?controller=book&method=bookAdd&id={$book.id}">修改</a>
+			</td>
+			<td>
+				<a class="btn btn-danger" href="bookList.php?controller=book&method=delBook&id={$book.id}">删除</a>
+			</td>
+		</tr>
+		{/foreach}
+		</tbody>
+	</table>
+</div>
+<script src="public/js/changeStat.js"></script>
+</body>
+</html>

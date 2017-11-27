@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>书籍</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form class="form-horizontal" role="form" method="post" action="bookList.php?controller=book&method=bookAdd">
+    <div class="form-group">
+        <label class="col-sm-offset-1 col-sm-2 control-label">书名</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="name" placeholder="请输入书名" value="{$data.name|default}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-offset-1 col-sm-2 control-label">出版社</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="publish" placeholder="请输入出版社"  value="{$data.publish|default}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-offset-1 col-sm-2 control-label">价格</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="price" placeholder="请输入价格" value="{$data.price|default}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-offset-1 col-sm-2 control-label">日期</label>
+        <div class="col-sm-6">
+            <input type="date" class="form-control" name="timeDate" placeholder="请输入日期" value="{$data.timeDate|default}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-6">
+            <input type="hidden" name="id" value="{$data.id|default}">
+            <button type="submit"  class="btn btn-primary btn-lg btn-block">更新</button>
+        </div>
+    </div>
+
+</form>
+</body>
+</html>

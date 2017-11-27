@@ -23,6 +23,11 @@ class adminController{
             $this->showMessage('登录失败','bookList.php?controller=admin');
         }
     }
+    function loginOut()
+    {
+        $_SESSION['flag'] = null;
+        $this->showMessage('退出成功','bookList.php?controller=admin');
+    }
     private function showMessage($info, $url)
     {
         echo "<script>alert('$info');window.location.href='$url'</script>";
